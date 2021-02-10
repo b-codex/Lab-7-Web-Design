@@ -56,7 +56,7 @@ async function load_fromPlaceHolder_new() {
 
 }
 
-function loadDataNew() {
+async function loadDataNew() {
 
     load_fromPlaceHolder_new()
         .then((data) => {
