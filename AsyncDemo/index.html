@@ -89,6 +89,23 @@
         <script src="./asset/js/loadPosts.js"></script>
         <script src="./asset/js/app.js"></script>
 
+
+        <script>
+            const posts = document.querySelector('body')
+            const filter = document.querySelector("body > div.ui.top.attached.tabular.menu > div > div > div > input[type=text]")
+            filter.addEventListener('keyup', (e) => {
+                const searchInput = e.target.value.toLowerCase();
+                
+                const postHeaders = posts.getElementsByClassName('header')
+                Array.from(postHeaders).forEach((postHeader) => {
+                    const postHeaderText = postHeader.textContent;
+                    if (postHeaderText.toLowerCase().indexOf(searchInput) != -1) {
+                        postHeader.style.display = 'block';
+                    } else postHeader.style.display = 'none';
+                })
+            })
+        </script>
+
 </body>
 
 </html>
