@@ -5,6 +5,30 @@ const postDiv3 = document.getElementById('thePosts');
 document.addEventListener("DOMContentLoaded", () => {
     // load_fromPlaceHolder();
     loadDataNew();
+    
+    const posts = document.querySelector('#thePosts')
+    const filter = document.querySelector("body > div.ui.top.attached.tabular.menu > div > div > div > input[type=text]")
+    
+    // const item = document.querySelectorAll("#thePosts > div > div.content")
+    
+    filter.addEventListener('keyup', (e) => {
+        const searchInput = e.target.value.toLowerCase();
+        const postHeaders = posts.getElementsByClassName('header')
+        Array.from(postHeaders).forEach((postHeader) => {
+            const postHeaderText = postHeader.textContent;
+            if (postHeaderText.toLowerCase().indexOf(searchInput) != -1) {
+                x = postHeader.parentElement.parentElement                      
+            } 
+            else{
+                x = postHeader.parentElement.parentElement
+                x.classList.add('y')
+                const y = document.getElementsByClassName('y')
+                Array.from(y).forEach((r) => {
+                    r.style.display = 'none'
+                })
+            }
+        })
+    })
 });
 
 
